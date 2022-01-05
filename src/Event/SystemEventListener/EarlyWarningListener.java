@@ -17,10 +17,11 @@ public class EarlyWarningListener implements SystemEventListener {
     public void handleEvent(SystemEvent e) {
         earlyWarningSystem.setLevel(dataAnalyzeSystem.getLevel());
         if (dataAnalyzeSystem.isTurnOnSystem()){
-            earlyWarningSystem.TakingMeasure();
-        }
-        if (earlyWarningSystem.isNotify()){
-            earlyWarningSystem.NotifyWarning();
+            if (earlyWarningSystem.isNotify()){
+                earlyWarningSystem.NotifyWarning();
+            }else{
+                earlyWarningSystem.TakingMeasure();
+            }
         }
     }
 }

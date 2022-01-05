@@ -15,11 +15,12 @@ public class EarlyWarningSystem {
     private static EarlyWarningSystem instance;
     private WarningStrategy strategy;
     private final EventManager eventManager = new EventManager();
-    private boolean Notify = true;
+    private boolean Notify = false;
 
     public EarlyWarningSystem() {
         eventManager.subscribe(new EveryoneListener());
         eventManager.subscribe(new EmergencyServiceAgencyListener());
+        setNotify(true);
     }
 
     public static EarlyWarningSystem getInstance(){
