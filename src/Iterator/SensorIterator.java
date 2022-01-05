@@ -5,14 +5,14 @@ import java.util.ArrayList;
 
 
 /**
- * 传感器具体迭代器
+ * 具体迭代器
  */
 public class SensorIterator implements DataIterator{
     private final ArrayList<String> list;
     private int index = 0;
 
-    public SensorIterator(IterableCollection collection) {
-        list = collection.getList();
+    public SensorIterator(ArrayList<String> list) {
+        this.list = list;
     }
 
     @Override

@@ -15,6 +15,7 @@ public class EarlyWarningSystem {
     private static EarlyWarningSystem instance;
     private WarningStrategy strategy;
     private final EventManager eventManager = new EventManager();
+    private boolean Notify = true;
 
     public EarlyWarningSystem() {
         eventManager.subscribe(new EveryoneListener());
@@ -28,6 +29,9 @@ public class EarlyWarningSystem {
         return instance;
     }
 
+    /**
+     * 根据数据分析系统的结果设置预警等级
+     */
     public void setLevel(int level){
         if (level == 1){
             setStrategy(new FirstLevel());
@@ -36,17 +40,36 @@ public class EarlyWarningSystem {
         }
     }
 
+    /**
+     * 采取措施
+     */
     public void TakingMeasure(){
         strategy.takeMeasure();
     }
 
-    public void Change(){
+    /**
+     * 广播预警
+     */
+    public void NotifyWarning(){
         System.out.println("无法采取建议措施");
         eventManager.notifyWarning(strategy);
     }
+
+    /**
+     * 设置预警等级
+     */
     public void setStrategy(WarningStrategy strategy) {
         this.strategy = strategy;
     }
 
+    /**
+     * 是否广播预警
+     */
+    public boolean isNotify() {
+        return Notify;
+    }
 
+    public void setNotify(boolean notify) {
+        Notify = notify;
+    }
 }

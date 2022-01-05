@@ -3,7 +3,7 @@ package Subscriber;
 import Warning.WarningStrategy;
 
 /**
- * 应急服务机构监听器
+ * 应急服务机构--订阅者
  */
 public class EmergencyServiceAgencyListener implements EventListener {
 

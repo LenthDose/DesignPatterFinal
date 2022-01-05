@@ -20,8 +20,10 @@ Class EarlyWarningSystem{
 + setStrategy(WarningStrategy strategy): void
 }
 
+class EarlyWarningListener{}
 
 FirstLevel ..|> WarningStrategy
 SecondLevel ..|> WarningStrategy
 EarlyWarningSystem o-> WarningStrategy
+EarlyWarningListener --> EarlyWarningSystem
 @enduml

@@ -8,7 +8,7 @@ import SubSystem.DataAnalyzeSystem;
 import SubSystem.EarlyWarningSystem;
 
 /**
- * 数据分析监听器，发送请求调用预警系统
+ * 数据分析事件监听器，发送请求调用预警系统
  */
 public class DataAnalyzeListener implements SystemEventListener {
 

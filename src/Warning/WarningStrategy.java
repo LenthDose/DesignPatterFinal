@@ -1,7 +1,7 @@
 package Warning;
 
 /**
- * 预警措施
+ * 所有策略的通用接口
  */
 public interface WarningStrategy {
 

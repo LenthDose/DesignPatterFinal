@@ -19,6 +19,7 @@ public class DataCollectSystem {
 
 
     public DataCollectSystem() {
+        CollectData();
     }
 
     public static DataCollectSystem getInstance(){

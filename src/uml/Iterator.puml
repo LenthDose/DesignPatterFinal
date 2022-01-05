@@ -12,7 +12,6 @@ interface DataIterator{
 
 interface IterableCollection{
 + createIterator(): DataIterator
-+ getList(): ArrayList
 }
 
 class SenSorIterator{
@@ -23,12 +22,17 @@ class SenSorIterator{
 + isLast(): boolean
 }
 
-class SenSorCollection{
+class DataCollection{
 + createIterator(): DataIterator
+}
+
+class DataAnalyzeSystem{
 }
 
 SenSorIterator ..|> DataIterator
 SenSorCollection ..|> IterableCollection
-SenSorIterator .right.> SenSorCollection
 IterableCollection ..> DataIterator
+DataCollection ..> SenSorIterator
+DataAnalyzeSystem ..> SenSorIterator
+DataAnalyzeSystem ..> DataCollection
 @enduml

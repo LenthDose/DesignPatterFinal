@@ -10,5 +10,4 @@ public interface IterableCollection {
 
     DataIterator createIterator();
 
-    ArrayList<String> getList();
 }

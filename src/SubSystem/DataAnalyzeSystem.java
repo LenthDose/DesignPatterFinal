@@ -1,7 +1,7 @@
 package SubSystem;
 
+import Iterator.DataCollection;
 import Iterator.DataIterator;
-import Iterator.SensorCollection;
 
 /**
  * 数据分析系统
@@ -18,7 +18,7 @@ public class DataAnalyzeSystem {
     }
 
     public void Analyze(){
-        DataIterator iterator = new SensorCollection(dataCollectSystem.getSensorData()).createIterator();
+        DataIterator iterator = new DataCollection(dataCollectSystem.getSensorData()).createIterator();
 //        while (iterator.isLast()){
 //            String result = iterator.getNext()+dataCollectSystem.getEnvironmentData()
 //                    +dataCollectSystem.getHistoryData();
@@ -51,5 +51,9 @@ public class DataAnalyzeSystem {
 
     public int getLevel() {
         return level;
+    }
+
+    public boolean isTurnOnSystem() {
+        return isTurnOnSystem;
     }
 }

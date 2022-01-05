@@ -4,7 +4,7 @@ package Subscriber;
 import Warning.WarningStrategy;
 
 /**
- * 全体监听器
+ * 广播--订阅者
  */
 public class EveryoneListener implements EventListener{
 

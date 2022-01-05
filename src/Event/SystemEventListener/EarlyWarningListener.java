@@ -6,22 +6,21 @@ import SubSystem.DataAnalyzeSystem;
 import SubSystem.EarlyWarningSystem;
 
 /**
- * 预警系统,调用显示结果
+ * 预警系统事件监听器,显示系统结果
  */
 public class EarlyWarningListener implements SystemEventListener {
 
     private static final DataAnalyzeSystem dataAnalyzeSystem = DataAnalyzeSystem.getInstance();
     private static final EarlyWarningSystem earlyWarningSystem = EarlyWarningSystem.getInstance();
+
     @Override
     public void handleEvent(SystemEvent e) {
-        int level = dataAnalyzeSystem.getLevel();
-        earlyWarningSystem.setLevel(level);
-        boolean isNotify = true;
-        if (!isNotify){
+        earlyWarningSystem.setLevel(dataAnalyzeSystem.getLevel());
+        if (dataAnalyzeSystem.isTurnOnSystem()){
             earlyWarningSystem.TakingMeasure();
-        }else{
-            earlyWarningSystem.Change();
         }
-
+        if (earlyWarningSystem.isNotify()){
+            earlyWarningSystem.NotifyWarning();
+        }
     }
 }
