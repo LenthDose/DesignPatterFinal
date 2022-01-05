@@ -1,0 +1,34 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+skinparam classAttributeIconSize 0
+skinparam linetype ortho
+
+interface DataIterator{
++ getNext(): String
++ hasNext(): boolean
++ isLast(): boolean
+}
+
+interface IterableCollection{
++ createIterator(): DataIterator
++ getList(): ArrayList
+}
+
+class SenSorIterator{
+- list: ArrayList
++ SenSorIterator(list: ArrayList)
++ getNext(): String
++ hasNext(): boolean
++ isLast(): boolean
+}
+
+class SenSorCollection{
++ createIterator(): DataIterator
+}
+
+SenSorIterator ..|> DataIterator
+SenSorCollection ..|> IterableCollection
+SenSorIterator .right.> SenSorCollection
+IterableCollection ..> DataIterator
+@enduml
