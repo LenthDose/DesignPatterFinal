@@ -7,5 +7,5 @@ import Warning.WarningStrategy;
  * 声明了通知接口
  */
 public interface EventListener {
-    void update(WarningStrategy strategy);
+    void warning(WarningStrategy strategy,String type);
 }

@@ -1,8 +1,6 @@
 package SubSystem;
 
-import Subscriber.EmergencyServiceAgencyListener;
-import Subscriber.EventManager;
-import Subscriber.EveryoneListener;
+import Subscriber.*;
 import Warning.FirstLevel;
 import Warning.SecondLevel;
 import Warning.WarningStrategy;
@@ -14,13 +12,21 @@ public class EarlyWarningSystem {
 
     private static EarlyWarningSystem instance;
     private WarningStrategy strategy;
+    private String type;
+
     private final EventManager eventManager = new EventManager();
     private boolean Notify = false;
 
     public EarlyWarningSystem() {
-        eventManager.subscribe(new EveryoneListener());
-        eventManager.subscribe(new EmergencyServiceAgencyListener());
+        subscribe();
         setNotify(true);
+    }
+
+    public void subscribe(){
+        eventManager.subscribe(new AppListener());
+        eventManager.subscribe(new FMListener());
+        eventManager.subscribe(new TrafficPoliceListener());
+        eventManager.subscribe(new EmergencyServiceAgencyListener());
     }
 
     public static EarlyWarningSystem getInstance(){
@@ -45,7 +51,7 @@ public class EarlyWarningSystem {
      * 采取措施
      */
     public void TakingMeasure(){
-        strategy.takeMeasure();
+        strategy.takeMeasure(type);
     }
 
     /**
@@ -53,7 +59,7 @@ public class EarlyWarningSystem {
      */
     public void NotifyWarning(){
         System.out.println("无法采取建议措施");
-        eventManager.notifyWarning(strategy);
+        eventManager.notifyWarning(strategy,type);
     }
 
     /**
@@ -72,5 +78,9 @@ public class EarlyWarningSystem {
 
     public void setNotify(boolean notify) {
         Notify = notify;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

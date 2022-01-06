@@ -5,31 +5,41 @@ skinparam classAttributeIconSize 0
 skinparam linetype ortho
 
 class EventManager{
-- listeners
-+ subscribe(listener)
-+ unsubscribe((listener)
-+ notify(strategy)
+- listeners: ArrayList
++ subscribe(EventListener listener)
++ unsubscribe(EventListener listener)
++ notify(Strategy strategy,String type)
 }
 
 interface EventListeners{
-+ update(strategy)
++ warning(Strategy strategy,String type)
 }
 
 class EmergencyServiceAgencyListener{
-+ update (strategy)
++ warning (Strategy strategy,String type)
 }
 
-class EveryoneListener{
-+ update (strategy)
+class FMListener{
++ warning (Strategy strategy,String type)
+}
+
+class AppListener{
++ warning (Strategy strategy,String type)
+}
+
+class TrafficPoliceListener{
++ warning (Strategy strategy,String type)
 }
 
 class EarlyWarningSystem{
 - eventManager: EventManager
-+ Change()
++ NotifyWarning()
 }
 
 EmergencyServiceAgencyListener ...|> EventListeners
-EveryoneListener ...|> EventListeners
+FMListener ...|> EventListeners
+AppListener ...|> EventListeners
+TrafficPoliceListener ...|> EventListeners
 EventManager o--> EventListeners
 EarlyWarningSystem o--> EventManager
 @enduml

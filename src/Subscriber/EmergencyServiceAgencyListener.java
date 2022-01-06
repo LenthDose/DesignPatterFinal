@@ -7,11 +7,11 @@ import Warning.WarningStrategy;
  */
 public class EmergencyServiceAgencyListener implements EventListener {
 
-    @Override
-    public void update(WarningStrategy strategy) {
-        System.out.println("---------------");
-        System.out.println("向应急服务机构广播预警");
-        strategy.NotifyMessage();
-    }
 
+    @Override
+    public void warning(WarningStrategy strategy,String type) {
+        System.out.println("-----------------");
+        System.out.println("通知应急服务机构");
+        strategy.EmergencyServiceAgencyWarning(type);
+    }
 }

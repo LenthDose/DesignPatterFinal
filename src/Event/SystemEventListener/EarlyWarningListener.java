@@ -17,6 +17,7 @@ public class EarlyWarningListener implements SystemEventListener {
     public void handleEvent(SystemEvent e) {
         earlyWarningSystem.setLevel(dataAnalyzeSystem.getLevel());
         if (dataAnalyzeSystem.isTurnOnSystem()){
+            earlyWarningSystem.setType(dataAnalyzeSystem.getType());
             if (earlyWarningSystem.isNotify()){
                 earlyWarningSystem.NotifyWarning();
             }else{

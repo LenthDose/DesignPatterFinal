@@ -28,10 +28,10 @@ public class EventManager {
     /**
      * 当新事件发生，遍历订阅列表并调用每个订阅者对象的通知方法
      */
-    public void notifyWarning(WarningStrategy strategy){
+    public void notifyWarning(WarningStrategy strategy,String type){
         for (EventListener listener :
                 listeners) {
-            listener.update(strategy);
+            listener.warning(strategy,type);
         }
     }
 }

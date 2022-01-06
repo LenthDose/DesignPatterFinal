@@ -2,6 +2,7 @@ package SubSystem;
 
 import Iterator.DataCollection;
 import Iterator.DataIterator;
+import api.WarningType;
 
 /**
  * 数据分析系统
@@ -10,6 +11,7 @@ public class DataAnalyzeSystem {
 
     private static DataAnalyzeSystem instance;
     private static int level;
+    private static String type;
     private boolean isTurnOnSystem = false;
     private final DataCollectSystem dataCollectSystem = DataCollectSystem.getInstance();
 
@@ -23,6 +25,7 @@ public class DataAnalyzeSystem {
 //            String result = iterator.getNext()+dataCollectSystem.getEnvironmentData()
 //                    +dataCollectSystem.getHistoryData();
 //        }
+        type = WarningType.Accident.getType();
         level = 1;
     }
 
@@ -55,5 +58,9 @@ public class DataAnalyzeSystem {
 
     public boolean isTurnOnSystem() {
         return isTurnOnSystem;
+    }
+
+    public  String getType() {
+        return type;
     }
 }

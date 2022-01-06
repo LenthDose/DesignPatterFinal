@@ -5,8 +5,8 @@
  --> [发送消息] "DataCollectEvent"
  --> [接收消息] "DataCollectListener"
  --> [发送消息] "DataAnalyzeEvent"
- --> [接收消息] "DataAnalyzeListener"
- --> [发送消息] "EarlyWarningEvent"
- --> [接收消息] "EarlyWarningListener"
+ -right-> [接收消息] "DataAnalyzeListener"
+ -up-> [发送消息] "EarlyWarningEvent"
+ -up-> [接收消息] "EarlyWarningListener"
 
 @enduml
